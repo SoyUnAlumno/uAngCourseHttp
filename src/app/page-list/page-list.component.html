@@ -1,0 +1,22 @@
+<div [innerHTML]="xss"></div>
+
+<table class="table is-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Word Count</th>
+      <th>Snippet</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let page of pages">
+          <a [href]="'https://en.wikipedia.org?curid=' + page.pageid" target="_blank">
+            <td> {{ page.title }}</td>
+          </a>
+        
+        <td> {{ page.wordcount }}</td>
+        <!--This is safe, because Angular will "purify" the content from anything that would put us at risk of an XSS attack-->
+        <td [innerHTML]="page.snippet"></td>
+      </tr>
+  </tbody>
+</table>

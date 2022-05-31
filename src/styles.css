@@ -1,1 +1,8 @@
+@import 'bulma/css/bulma.css';
 /* You can add global styles to this file, and also import other style files */
+/*Placed here and not in component(page-list) css because even though the content of the component template
+will eventually include an element with the class, Angular doesn't apply the style because it's not explicitly part
+of the component (original) template*/
+.searchmatch {
+    font-weight: bold;
+}
