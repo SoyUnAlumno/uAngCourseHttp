@@ -10,6 +10,7 @@ export class WikipediaService {
   constructor(private http: HttpClient) {}
 
   search(term: string) {
+    // Uses Typescript with RxJS. Uses generic type WikipediaResponse so search method knows which type is being returned from the observable
     return this.http.get<WikipediaResponse>('https://en.wikipedia.org/w/api.php', {
       params: {
         action: 'query',
